@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-.phony: clean fclean re
+.phony: all clean fclean re
 
 all:
 	make -C libft

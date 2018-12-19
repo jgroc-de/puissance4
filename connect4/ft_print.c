@@ -24,7 +24,7 @@ void	ft_line(t_c4 *board, int i, char (*f)(char c))
 {
 	int	j;
 
-	j = 0;
+	j = 3;
 	ft_printf(" ");
 	while (j < board->col)
 	{
@@ -47,7 +47,7 @@ void	ft_print(t_c4 *board)
 
 	i = board->line - 1;
 	ft_line(board, -1, NULL);
-	while (i >= 0)
+	while (i >= 3)
 	{
 		ft_line(board, i, &ft_empty_line);
 		ft_line(board, i, &ft_int2symbol);
