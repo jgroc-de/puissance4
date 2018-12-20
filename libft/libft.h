@@ -17,10 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
-# include "printf/libprintf.h"
 
-# define BUFF_SIZE 8
-# define ERROR -1
 
 typedef	struct	s_list
 {
@@ -36,14 +33,6 @@ typedef	struct	s_list2
 	struct s_list2	*prev;
 	struct s_list2	*next;
 }				t_list2;
-
-typedef struct	s_gnl
-{
-	char	*str;
-	char	*tmp;
-	int		status;
-	t_list	*ltmp;
-}				t_gnl;
 
 typedef struct	s_btree
 {
@@ -96,7 +85,7 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memset(void *b, int c, size_t len);
 
 /*
-** print
+** io
 */
 
 size_t			ft_putchar(char c);
@@ -110,7 +99,7 @@ size_t			ft_putnbr_fd(int n, int fd);
 size_t			ft_putstr(const char *str);
 size_t			ft_putwstr(wchar_t *str);
 size_t			ft_putstr_fd(const	char *s, int fd);
-
+int				get_next_line(const int fd, char **line);
 
 /*
 ** character
@@ -244,11 +233,5 @@ void			ft_btriterin(t_btree *root, void (*f)(void *));
 int				ft_btrcount(t_btree *root);
 t_btree			*ft_btrsearch(t_btree *root, void *data_ref, int (*cmpf)(void *, void *));
 int				ft_btrinsert(t_btree **root, void *item, int (*cmpf)(void *, void *));
-
-/*
-**	read files
-*/
-
-int				get_next_line(const int fd, char **line);
 
 #endif

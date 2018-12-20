@@ -1,6 +1,6 @@
 CC=gcc
 #CFLAGS= -Wall -Werror -Wextra -I ../libft
-CFLAGS= -Wall -Werror -Wextra -fsanitize=address -I ../libft
+CFLAGS= -Wall -Werror -Wextra -fsanitize=address -g -I ../libft
 LIBFT= -L../libft -lft
 NAME= ../puissance4
 LIB= ../libft/libft.a
