@@ -25,10 +25,11 @@ void	ft_line(t_c4 *board, int i, char (*f)(char c))
 	int	j;
 
 	j = 3;
+	i += 3;
 	ft_printf(" ");
-	while (j < board->col)
+	while (j - 3 < board->col)
 	{
-		if (i == -1)
+		if (i == 2)
 			ft_printf("____");
 		else if (board->grid[i][j] == 1)
 			ft_printf("| \e[1;31m%c\e[m ", f(board->grid[i][j]));
@@ -47,11 +48,13 @@ void	ft_print(t_c4 *board)
 
 	i = board->line - 1;
 	ft_line(board, -1, NULL);
-	while (i >= 3)
+	while (i >= 0)
 	{
 		ft_line(board, i, &ft_empty_line);
 		ft_line(board, i, &ft_int2symbol);
 		ft_line(board, i, &ft_line_break);
 		i--;
 	}
+	ft_printf("human player: \e[1;31mo\e[m\n");
+	ft_printf("human player: \e[1;33mx\e[m\n");
 }

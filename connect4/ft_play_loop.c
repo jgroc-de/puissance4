@@ -17,24 +17,26 @@ static int	ft_get_play(int max)
 			col = ft_atoi(str);
 		ft_strdel(&str);
 	}
-	return (col - 1 + 3);
+	return (col);
 }
 
 static int	ft_play(t_c4 *board, int col)
 {
 	int	i;
+	int	real_col;
 
-	i = 3;
-	while (i < board->line && board->grid[i][col] != 0)
+	i = 0;
+	real_col = col - 1 + 3;
+	while (i < board->line && board->grid[i + 3][real_col] != 0)
 		i++;
 	if (i != board->line)
 	{
-		board->grid[i][col] = board->turn;
+		board->grid[i + 3][real_col] = board->turn;
 		return (1);
 	}
 	else
 	{
-		ft_printf("column %d is full! Plz choose another one!\n", col + 1 - 3);
+		ft_printf("column %d is full! Plz choose another one!\n", col);
 		return (0);
 	}
 }
@@ -46,12 +48,13 @@ int	ft_play_loop(t_c4 *board)
 	while (1)
 	{
 		if (board->turn == 1)
-			col = ft_get_play(board->col - 3);
+			col = ft_get_play(board->col);
 		else
 			//ia a mettre la
-			col = ft_get_play(board->col - 3);
+			col = ft_get_play(board->col);
 		if (ft_play(board, col))
 			break ;
 	}
-	return (col);
+	ft_printf("col jouée: %d\n", col);
+	return (col + 2);
 }

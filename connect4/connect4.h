@@ -1,6 +1,6 @@
 #ifndef CONNECT4_H
 # define CONNECT4_H
-# include "../libft/libft.h"
+# include "../libft/printf/libprintf.h"
 # include <errno.h>
 # include <time.h>
 

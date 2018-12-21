@@ -47,19 +47,22 @@ int	ft_get_line(t_c4 *board, int col)
 {
 	int	i;
 
-	i = 3;
-	while (i < board->line && board->grid[i][col] != 0)
+	i = 0;
+	while (i < board->line && board->grid[i + 3][col] != 0)
 	{
 		i++;
 	}
-	return (i);
+	return (i + 3 - 1);
 }
 
 int ft_iswin(t_c4 *board, int col)
 {
 	int	line;
 
-	line = ft_get_line(board, col) - 1;
+	line = ft_get_line(board, col);
+	ft_printf("col computer: %d\n", col);
+	ft_printf("ligne computer: %d\n", line);
+	ft_printf("ligne joueur: %d\n", line - 2);
 	if (ft_test(board, col, line))
 	{
 		board->winner = board->grid[line][col];
