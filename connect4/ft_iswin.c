@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:36 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 14:29:24 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 15:13:09 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	aux_iswin(int result[7])
 	int	i;
 
 	i = 0;
-	while (i < 7)
+	while (i < 13)
 	{
 		if (ft_abs(result[i++]) == 4)
 			return (1);
@@ -25,31 +25,37 @@ static int	aux_iswin(int result[7])
 	return (0);
 }
 
-static void	aux_reset(int result[7], int content)
+static void	aux_reset(int result[7])
 {
 	int	i;
 
 	i = 0;
-	while (i < 7)
-		result[i++] = content;
+	while (i < 13)
+		result[i++] = 0;
 }
 
 int			ft_test(t_c4 *board, int col, int line)
 {
 	int	k;
-	int	result[7];
+	int	result[13];
 
-	k = 1;
-	aux_reset(result, board->grid[line][col]);
+	k = 0;
+	aux_reset(result);
 	while (k < 4)
 	{
 		result[0] += board->grid[line - k][col];
 		result[1] += board->grid[line][col - k];
-		result[2] += board->grid[line][col + k];
-		result[3] += board->grid[line - k][col - k];
-		result[4] += board->grid[line - k][col + k];
-		result[5] += board->grid[line + k][col - k];
-		result[6] += board->grid[line + k][col + k];
+		result[2] += board->grid[line][col - 2 + k];
+		result[3] += board->grid[line][col - 1 + k];
+		result[4] += board->grid[line][col + k];
+		result[5] += board->grid[line - k][col - k];
+		result[6] += board->grid[line - 2 + k][col - 2 + k];
+		result[7] += board->grid[line - 1 + k][col - 1 + k];
+		result[8] += board->grid[line + k][col + k];
+		result[9] += board->grid[line - k][col + k];
+		result[10] += board->grid[line - 2 + k][col + 2 - k];
+		result[11] += board->grid[line - 1 + k][col + 1 - k];
+		result[12] += board->grid[line + k][col - k];
 		k++;
 	}
 	return (aux_iswin(result));
