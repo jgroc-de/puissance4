@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:39 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 12:27:49 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 13:37:51 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ int			ft_play_loop(t_c4 *board)
 		if (board->turn == 1)
 			col = ft_get_play(board->col);
 		else
-			//ia a mettre la
 			col = ft_get_play(board->col);
+			//col = ft_ia(board);
 		if (ft_play(board, col))
 			break ;
 	}

@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_ia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 12:25:17 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 13:37:42 by jgroc-de         ###   ########.fr       */
+/*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
+/*   Updated: 2018/12/22 13:39:56 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
 
-void	ft_free(t_c4 *board, int i)
+int ft_minimax(t_c4 *board, int col, int depth)
 {
-	free(board->score);
-	while (i >= 0)
-	{
-		free(board->grid[i--]);
-	}
-	free(board->grid);
+	(void)board;
+	(void)col;
+	(void)depth;
+	return (0);
 }
