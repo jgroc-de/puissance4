@@ -54,6 +54,6 @@ void	ft_remove_play(t_c4 *board, int col);
 */
 
 int		ft_ia(t_c4 *board, int turn);
-int		ft_minimax(t_c4 *board, int depth);
+int     ft_minimax(t_c4 *board, int turn, int i);
 
 #endif

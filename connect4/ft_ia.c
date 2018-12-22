@@ -12,39 +12,60 @@
 
 #include "connect4.h"
 
-int	ft_ia(t_c4 *board, int turn)
+int	ft_minimax(t_c4 *board, int turn, int i)
 {
-	int col;
-	int	i;
-	int	score;
-	int	tmp;
+	int j;
+	int tmp;
 
-	i = 1;
-	score = board->player * (turn + 1);
-	col = 0;
-	while (i < board->col)
+	j = 1;
+	while (j < board->col)
 	{
 		if (ft_play(board, i))
 		{
-			if (!ft_iswin(board, i + 2))
+			if (!ft_iswin(board, i + 2) && turn != 0)
 			{
-				//tmp = ft_minimax(board, depth);
-				tmp = score - 1;
-				if (ft_min(score, tmp) == tmp)
-				{
-					score = tmp;
-					col = i;
-				}
+				board->player = turn % 2 == 0 ? -1 : 1;
+				tmp = ft_minimax(board, turn - 1, j);
+				board->player = turn % 2 == 0 ? -1 : 1;
+				ft_remove_play(board, i);
+				return (tmp);
 			}
 			else
 			{
-				col = i;
 				ft_remove_play(board, i);
-				break;
+				return (board->player * turn);
 			}
-			ft_remove_play(board, i);
+		}
+	j++;
+	}
+	return (0);
+}
+
+int	ft_ia(t_c4 *board, int turn)
+{
+	int col[7];
+	int tmp;
+	int i;
+	int colonne;
+
+	i = 0;
+	while (i < 7)
+	{
+		col[i] = ft_minimax(board, turn, i + 1);
+		i++;
+	}
+	i = 0;
+	tmp = col[i];
+	colonne = i + 1;
+	i = 1;
+	while (i < 7)
+	{
+		if (tmp < col[i])
+		{
+			tmp = col[i];
+			colonne = i + 1;
 		}
 		i++;
 	}
-	return (col);
+	return (colonne);
 }
