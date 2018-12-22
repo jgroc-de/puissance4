@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:36 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 13:59:03 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 14:25:01 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	aux_iswin(int result[7])
 	int	i;
 
 	i = 0;
-	while (i < 7)
+	while (i < 8)
 	{
 		if (ft_abs(result[i++]) == 4)
 			return (1);
