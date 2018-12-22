@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 15:57:24 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 16:18:52 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ int	ft_ia(t_c4 *board, int turn)
 				}
 			}
 			else
+			{
 				col = i;
+				i = board->col;
+			}
 			ft_remove_play(board, i);	
 		}
 		i++;
