@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:12 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 16:01:54 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 23:31:34 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,5 @@ void	ft_remove_play(t_c4 *board, int col);
 */
 
 int		ft_ia(t_c4 *board, int turn);
-int		ft_minimax(t_c4 *board, int depth);
 
 #endif
