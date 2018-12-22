@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:39 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 13:37:51 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 16:04:04 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,38 +32,18 @@ static int	ft_get_play(int max)
 	return (col);
 }
 
-static int	ft_play(t_c4 *board, int col)
-{
-	int	i;
-	int	real_col;
-
-	i = 0;
-	real_col = col - 1 + 3;
-	while (i < board->line && board->grid[i + 3][real_col] != 0)
-		i++;
-	if (i != board->line)
-	{
-		board->grid[i + 3][real_col] = board->turn;
-		return (1);
-	}
-	else
-	{
-		ft_printf("column %d is full! Plz choose another one!\n", col);
-		return (0);
-	}
-}
-
-int			ft_play_loop(t_c4 *board)
+int			ft_play_loop(t_c4 *board, int turn)
 {
 	int col;
 
+	(void)turn;
 	while (1)
 	{
-		if (board->turn == 1)
+		if (board->player == 1)
 			col = ft_get_play(board->col);
 		else
-			col = ft_get_play(board->col);
-			//col = ft_ia(board);
+			//col = ft_get_play(board->col);
+			col = ft_ia(board, turn);
 		if (ft_play(board, col))
 			break ;
 	}

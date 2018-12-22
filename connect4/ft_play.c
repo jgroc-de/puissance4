@@ -1,46 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ia.c                                            :+:      :+:    :+:   */
+/*   ft_play_loop.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 15:57:24 by jgroc-de         ###   ########.fr       */
+/*   Created: 2018/12/22 12:25:39 by jgroc-de          #+#    #+#             */
+/*   Updated: 2018/12/22 15:59:59 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
 
-int	ft_ia(t_c4 *board, int turn)
+int	ft_play(t_c4 *board, int col)
 {
-	int col;
 	int	i;
-	int	score;
-	int	tmp;
+	int	real_col;
 
 	i = 0;
-	score = board->player * (turn + 1);
-	col = 0;
-	while (i < board->col)
-	{
-		if (ft_play(board, i))
-		{
-			if (!ft_iswin(board, i))
-			{
-				//tmp = ft_minimax(board, depth);
-				tmp = score - 1;
-				if (ft_min(score, tmp) == tmp)
-				{
-					score = tmp;
-					col = i;
-				}
-			}
-			else
-				col = i;
-			ft_remove_play(board, i);	
-		}
+	real_col = col - 1 + 3;
+	while (i < board->line && board->grid[i + 3][real_col] != 0)
 		i++;
+	if (i != board->line)
+	{
+		board->grid[i + 3][real_col] = board->player;
+		return (1);
 	}
-	return (col);
+	else
+	{
+		if (board->player == 1)
+			ft_printf("column %d is full! Plz choose another one!\n", col);
+		return (0);
+	}
 }

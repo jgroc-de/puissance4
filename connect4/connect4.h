@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:12 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 13:32:22 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 16:01:54 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct	s_c4
 {
 	int 	col;
 	int 	line;
-	int		turn;
+	int		player;
 	int		winner;
 	int		*score;
 	int		depth;
@@ -44,14 +44,16 @@ void	ft_print(t_c4 *board);
 */
 
 int		ft_game_loop(t_c4 *board);
-int		ft_play_loop(t_c4 *board);
+int		ft_play_loop(t_c4 *board, int turn);
 int		ft_iswin(t_c4 *board, int col);
+int		ft_play(t_c4 *board, int col);
+void	ft_remove_play(t_c4 *board, int col);
 
 /*
 ** ia
 */
 
-int		ft_ia(t_c4 *board);
-int		ft_minimax(t_c4 *board, int col, int depth);
+int		ft_ia(t_c4 *board, int turn);
+int		ft_minimax(t_c4 *board, int depth);
 
 #endif
