@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/24 18:14:24 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/10/08 14:56:02 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 12:29:04 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ static t_list2	*aux_merge(t_list2 *l1, t_list2 *l2,
 	return (head);
 }
 
-t_list2			*ft_lst2sort(t_list2 *l1, int (*f)(t_list2 *node1, t_list2 *node2))
+t_list2			*ft_lst2sort(t_list2 *l1, int (*f)(t_list2 *node1,
+			t_list2 *node2))
 {
 	t_list2	*tmp;
 	t_list2	*l2;

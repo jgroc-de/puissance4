@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/24 18:20:12 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/09/24 18:20:13 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 12:35:13 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,11 @@ t_list2	*ft_lst2lcpy(t_list2 *src, int len)
 		tmp->prev = NULL;
 		while (src && len--)
 		{
-			if (!(tmp->content = ft_memalloc(sizeof(char) * src->content_size)))
+			if (!(tmp->content = malloc(sizeof(char) * src->content_size)))
 				return (ft_lst2del(&cpy, &ft_del));
 			ft_memcpy(tmp->content, src->content, src->content_size);
 			tmp->content_size = src->content_size;
-			src = src->next;
-			if (src && len)
+			if ((src = src->next) && len)
 			{
 				if (!(tmp->next = ft_lst2new(NULL, 0)))
 					return (ft_lst2del(&cpy, &ft_del));

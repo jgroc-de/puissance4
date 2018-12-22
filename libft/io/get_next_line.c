@@ -6,14 +6,14 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 14:17:45 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/10/08 14:26:04 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 12:21:02 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "../printf/libprintf.h"
 
-char	*aux_join(char **line, t_list *node, int max)
+static char	*aux_join(char **line, t_list *node, int max)
 {
 	t_list	*tmp;
 	int		len;
@@ -40,7 +40,7 @@ char	*aux_join(char **line, t_list *node, int max)
 	return (*line);
 }
 
-int	aux_lstadd(t_list **node, char *save, int *status, int *len)
+static int	aux_lstadd(t_list **node, char *save, int *status, int *len)
 {
 	t_list	*tmp;
 	char	*test;
@@ -64,7 +64,7 @@ int	aux_lstadd(t_list **node, char *save, int *status, int *len)
 	}
 }
 
-int		aux_read_loop(t_list **node, char *save, const int fd, int *status)
+static int	aux_read_loop(t_list **node, char *save, const int fd, int *status)
 {
 	int	len;
 	int	out;
@@ -87,7 +87,7 @@ int		aux_read_loop(t_list **node, char *save, const int fd, int *status)
 	return (len);
 }
 
-int				get_next_line(const int fd, char **line)
+int			get_next_line(const int fd, char **line)
 {
 	static char		save[BUFF_SIZE + 1];
 	t_list			*node;
@@ -109,5 +109,5 @@ int				get_next_line(const int fd, char **line)
 	aux_join(line, node, len);
 	if (len == 0 && status == 0)
 		free(*line);
-	return (status >= 1? 1 : 0);
+	return (status >= 1 ? 1 : 0);
 }

@@ -6,7 +6,7 @@
 #    By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/06 11:23:09 by jgroc-de          #+#    #+#              #
-#    Updated: 2018/02/06 11:56:01 by jgroc-de         ###   ########.fr        #
+#    Updated: 2018/12/22 12:42:20 by jgroc-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,6 @@ ft_tolower.c\
 ft_toupper.c\
 ft_wcharlen.c\
 ft_wstrlen.c\
-get_next_line.c\
 
 SRC_BTREE=\
 ft_btrcount.c\
@@ -81,7 +80,8 @@ ft_putnwchar.c\
 ft_putstr.c\
 ft_putstr_fd.c\
 ft_putwchar.c\
-ft_putwstr.c
+ft_putwstr.c\
+get_next_line.c\
 
 SRC_IS=\
 ft_isalnum.c\
@@ -187,7 +187,7 @@ OBJ=$(subst .c,.o, $(SRC))
 
 all: $(NAME)
 
-$(NAME): $(OBJ) libft.h printf/libprintf.h string/get_next_line.h
+$(NAME): $(OBJ) libft.h printf/libprintf.h io/get_next_line.h
 	@echo "building "$(NAME)
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 

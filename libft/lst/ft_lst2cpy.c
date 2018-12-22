@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/24 18:20:29 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/09/24 18:20:31 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 12:33:55 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_list2	*ft_lst2cpy(t_list2 *src)
 	t_list2	*cpy;
 	t_list2	*tmp;
 
-	cpy = NULL;
 	if (!(src))
 		return (NULL);
 	if ((cpy = ft_lst2new(NULL, 0)))
@@ -30,8 +29,7 @@ t_list2	*ft_lst2cpy(t_list2 *src)
 				return (NULL);
 			ft_memcpy(tmp->content, src->content, src->content_size);
 			tmp->content_size = src->content_size;
-			src = src->next;
-			if (src)
+			if ((src = src->next))
 			{
 				if (!(tmp->next = ft_lst2new(NULL, 0)))
 					return (NULL);

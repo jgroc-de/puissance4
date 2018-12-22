@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/22 12:25:42 by jgroc-de          #+#    #+#             */
+/*   Updated: 2018/12/22 12:44:44 by jgroc-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "connect4.h"
 
 char	ft_int2symbol(char c)
@@ -56,5 +68,5 @@ void	ft_print(t_c4 *board)
 		i--;
 	}
 	ft_printf("human player: \e[1;31mo\e[m\n");
-	ft_printf("human player: \e[1;33mx\e[m\n");
+	ft_printf("computer player: \e[1;33mx\e[m\n");
 }

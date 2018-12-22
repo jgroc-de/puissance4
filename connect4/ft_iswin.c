@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_iswin.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/22 12:25:36 by jgroc-de          #+#    #+#             */
+/*   Updated: 2018/12/22 12:27:30 by jgroc-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "connect4.h"
 
 static int	aux_iswin(int result[7])
@@ -22,7 +34,7 @@ static void	aux_reset(int result[7], int content)
 		result[i++] = content;
 }
 
-int	ft_test(t_c4 *board, int col, int line)
+int			ft_test(t_c4 *board, int col, int line)
 {
 	int	k;
 	int	result[7];
@@ -43,7 +55,7 @@ int	ft_test(t_c4 *board, int col, int line)
 	return (aux_iswin(result));
 }
 
-int	ft_get_line(t_c4 *board, int col)
+int			ft_get_line(t_c4 *board, int col)
 {
 	int	i;
 
@@ -55,7 +67,7 @@ int	ft_get_line(t_c4 *board, int col)
 	return (i + 3 - 1);
 }
 
-int ft_iswin(t_c4 *board, int col)
+int			ft_iswin(t_c4 *board, int col)
 {
 	int	line;
 

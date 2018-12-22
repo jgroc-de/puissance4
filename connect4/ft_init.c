@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_init.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/22 12:25:33 by jgroc-de          #+#    #+#             */
+/*   Updated: 2018/12/22 12:26:40 by jgroc-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "connect4.h"
 
 static int	aux_malloc(t_c4 *board)
@@ -23,7 +35,7 @@ static int	aux_malloc(t_c4 *board)
 	return (1);
 }
 
-int	ft_init(t_c4 *board, char **av)
+int			ft_init(t_c4 *board, char **av)
 {
 	//isinteger counts digit, that s all
 	if (!ft_isinteger(av[1]) || !ft_isinteger(av[2]))

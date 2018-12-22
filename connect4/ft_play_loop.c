@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_play_loop.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/22 12:25:39 by jgroc-de          #+#    #+#             */
+/*   Updated: 2018/12/22 12:27:49 by jgroc-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "connect4.h"
 
 static int	ft_get_play(int max)
@@ -41,7 +53,7 @@ static int	ft_play(t_c4 *board, int col)
 	}
 }
 
-int	ft_play_loop(t_c4 *board)
+int			ft_play_loop(t_c4 *board)
 {
 	int col;
 
