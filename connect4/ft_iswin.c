@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:36 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 14:25:01 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 14:29:24 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	aux_iswin(int result[7])
 	int	i;
 
 	i = 0;
-	while (i < 8)
+	while (i < 7)
 	{
 		if (ft_abs(result[i++]) == 4)
 			return (1);
@@ -37,14 +37,13 @@ static void	aux_reset(int result[7], int content)
 int			ft_test(t_c4 *board, int col, int line)
 {
 	int	k;
-	int	result[8];
+	int	result[7];
 
 	k = 1;
 	aux_reset(result, board->grid[line][col]);
 	while (k < 4)
 	{
 		result[0] += board->grid[line - k][col];
-		result[7] += board->grid[line + k][col];
 		result[1] += board->grid[line][col - k];
 		result[2] += board->grid[line][col + k];
 		result[3] += board->grid[line - k][col - k];
