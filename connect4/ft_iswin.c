@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:36 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 15:49:41 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 22:32:07 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int			ft_get_line(t_c4 *board, int col)
 	{
 		i++;
 	}
-	return (i + 3 - 1);
+	return (i + 3);
 }
 
 int			ft_iswin(t_c4 *board, int col)
@@ -78,15 +78,12 @@ int			ft_iswin(t_c4 *board, int col)
 	int	line;
 
 	line = ft_get_line(board, col);
-	if (board->player == 1)
+	ft_printf("col computer: %d\n", col);
+	ft_printf("ligne computer: %d\n", line - 1);
+	ft_printf("ligne joueur: %d\n", line - 3);
+	if (ft_test(board, col, line - 1))
 	{
-		ft_printf("col computer: %d\n", col);
-		ft_printf("ligne computer: %d\n", line);
-		ft_printf("ligne joueur: %d\n", line - 2);
-	}
-	if (ft_test(board, col, line))
-	{
-		board->winner = board->grid[line][col];
+		board->winner = board->grid[line - 1][col];
 		return (1);
 	}
 	return (0);

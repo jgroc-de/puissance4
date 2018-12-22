@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:39 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 15:59:59 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/22 22:13:32 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	ft_play(t_c4 *board, int col)
 		i++;
 	if (i != board->line)
 	{
+		ft_printf("col: %d\n", i);
 		board->grid[i + 3][real_col] = board->player;
 		return (1);
 	}
