@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:33 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 21:20:03 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 21:23:15 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ int			ft_init(t_c4 *board, char **av)
 {
 	if (!ft_isinteger(av[1]) || !ft_isinteger(av[2]))
 		return (ft_usage(av));
-	if ((board->hard = ft_get_hardness()) == -1)
-		return (0);
 	board->col = ft_atoi(av[1]);
 	board->line = ft_atoi(av[2]);
+	if ((board->hard = ft_get_hardness()) == -1)
+		return (0);
 	if (board->line % 2 != 0 && board->col % 2 != 0)
 		return (ft_usage(av));
 	board->winner = 0;
