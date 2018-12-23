@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 21:40:47 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 21:47:11 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	aux_print_result(int *save, t_c4 *board)
 
 	i = 0;
 	out = 0;
-	ft_printf("|");
+	ft_printf("\n|");
 	test = save[0];
 	while (i < board->col)
 	{
