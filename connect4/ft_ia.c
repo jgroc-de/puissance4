@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 17:36:35 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 18:11:41 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,35 +33,35 @@ int ft_can_win(t_c4 *board)
 	return (0);
 }
 
-int	ft_minimax(t_c4 *board, int depth)
+int	ft_negamax(t_c4 *board, int turn)
 {
 	int	i;
-	int	score;
+	int	bestscore;
 
-	board->player = (board->player == 1) ? -1 : 1;
-	if ((i = ft_can_win(board)) != 0)
+	if (turn == board->max_turn || turn - board->depth >= board->depth)
+		bestscore = 0;
+	else if ((i = ft_can_win(board)) != 0)
 	{
-		//ft_printf("** player %dwin \n", board->player);
-		score = depth + 1;
+		ft_printf("** player %dwin \n", board->player);
+		bestscore = board->max_turn - turn + 1;
 	}
-	else if (depth == board->depth)
-		score = 0;
 	else
 	{
-		score = -100;
+		bestscore = -board->max_turn;
 		i = 1;
 		while (i <= board->col)
 		{
 			if (ft_play(board, i))
 			{
-				score = ft_max(score, -ft_minimax(board, depth + 1));
+				board->player = (board->player == 1) ? -1 : 1;
+				bestscore = ft_max(bestscore, -ft_negamax(board, turn + 1));
+				board->player = (board->player == 1) ? -1 : 1;
 				ft_remove_play(board, i);
 			}
 			i++;
 		}
 	}
-	board->player = (board->player == 1) ? -1 : 1;
-	return (score);
+	return (bestscore);
 }
 
 int	ft_ia(t_c4 *board, int turn)
@@ -71,29 +71,21 @@ int	ft_ia(t_c4 *board, int turn)
 	int	tmp;
 	int i;
 
-	if ((i = ft_can_win(board)) != 0)
-		return (i);
-	board->depth = turn;
-	board->depth = 3;
-	ft_printf(" |");
+	score = -board->max_turn;
 	i = 1;
 	col = 1;
-	score = -100;
+	board->depth = turn;
 	while (i <= board->col)
 	{
-		if (ft_play(board, i))
+		tmp = ft_negamax(board, turn);
+		ft_printf(" %d |", tmp);
+		if (score < tmp)
 		{
-			tmp = ft_minimax(board, 0);
-			ft_printf(" %d |", tmp);
-			if (score < tmp)
-			{
-				col = i;
-				score = tmp;
-			}
-			ft_remove_play(board, i);
-			if (score == 1)
-				break ;
+			col = i;
+			score = tmp;
 		}
+		if (score == 1)
+			break ;
 		i++;
 	}
 	while (!ft_play(board, col))

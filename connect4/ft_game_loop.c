@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:28 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 22:31:27 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 17:56:01 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,20 @@ int			ft_game_loop(t_c4 *board)
 	int	turn;
 	int col;
 
-	turn = board->line * board->col;
-	while (turn--)
+	turn = 1;
+	board->max_turn = board->line * board->col;
+	while (turn != board->max_turn)
 	{
 		board->depth = ft_min(4, turn);
-		ft_print(board);
 		ft_printf("\n\n\t*** It's %s turn to play! ***\n",
 			board->player == 1 ? "your" : "computer's");
 		if ((col = ft_play_loop(board, turn)) == -1)
 			return (0);
+		ft_print(board);
 		if (ft_iswin(board, col))
 			break ;
 		board->player = board->player == 1 ? -1 : 1;
+		turn++;
 	}
 	ft_print_winner(board);
 	return (1);

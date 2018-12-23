@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:12 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 17:23:46 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 18:01:32 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_c4
 	int 	line;
 	int		player;
 	int		winner;
+	int		max_turn;
 	int		*score;
 	int		depth;
 	char	**grid;

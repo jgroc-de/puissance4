@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:39 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 22:29:55 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 17:54:08 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,14 @@ int			ft_play_loop(t_c4 *board, int turn)
 {
 	int col;
 
-	(void)turn;
 	while (1)
 	{
 		if (board->player == 1)
 			col = ft_get_play(board->col);
 		else
-			//col = ft_get_play(board->col);
 			col = ft_ia(board, turn);
 		if (ft_play(board, col))
 			break ;
 	}
-	//if (board->player == 1)
-	//	ft_printf("col jouée: %d\n", col);
 	return (col);
 }
