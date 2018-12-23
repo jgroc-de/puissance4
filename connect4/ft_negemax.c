@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 20:03:03 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 20:15:16 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	aux_negamax(t_c4 *board, int turn, int *col, int *save)
 		if (ft_play(board, i))
 		{
 			board->player = (board->player == 1) ? -1 : 1;
-			bestscore = ft_max(bestscore, tmp = -ft_negamax(board, turn - 1, save));
+			tmp = -ft_negamax(board, turn - 1, save);
+			bestscore = ft_max(bestscore, tmp);
 			if (turn == board->depth && bestscore == tmp)
 				*col = i;
 			board->player = (board->player == 1) ? -1 : 1;

@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:39 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 22:13:32 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 20:14:34 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	ft_play(t_c4 *board, int col)
 	}
 	else
 	{
-		//if (board->player == 1)
-		//	ft_printf("column %d is full! Plz choose another one!\n", col);
 		return (0);
 	}
 }

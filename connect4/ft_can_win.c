@@ -6,13 +6,13 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 19:39:49 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 20:13:35 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
 
-int ft_can_win(t_c4 *board)
+int	ft_can_win(t_c4 *board)
 {
 	int	i;
 

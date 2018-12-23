@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:33 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 15:58:15 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 20:16:28 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static int	aux_malloc(t_c4 *board)
 
 int			ft_init(t_c4 *board, char **av)
 {
-	//isinteger counts digit, that s all
 	if (!ft_isinteger(av[1]) || !ft_isinteger(av[2]))
 	{
 		return (ft_usage(av));
