@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 21:04:51 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 21:07:52 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	aux_reset(int *save, t_c4 *board)
 	i = 0;
 	while (i < board->col)
 	{
-		save[i] = -board->max_turn;
+		save[i] = -board->max_turn - 1;
 		i++;
 	}
 }

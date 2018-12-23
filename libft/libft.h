@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 11:41:39 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/10/08 14:26:40 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 21:11:59 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
-
 
 typedef	struct	s_list
 {
@@ -145,7 +144,6 @@ char			*ft_strndup(const char *s1, size_t n);
 char			*ft_strdup(const char *s1);
 char			**ft_strsplit(char const *s, char c);
 
-
 /*
 ** string array
 */
@@ -231,7 +229,9 @@ void			ft_btriterpre(t_btree *root, void (*f)(void *));
 void			ft_btritersu(t_btree *root, void (*f)(void *));
 void			ft_btriterin(t_btree *root, void (*f)(void *));
 int				ft_btrcount(t_btree *root);
-t_btree			*ft_btrsearch(t_btree *root, void *data_ref, int (*cmpf)(void *, void *));
-int				ft_btrinsert(t_btree **root, void *item, int (*cmpf)(void *, void *));
+t_btree			*ft_btrsearch(t_btree *root, void *data_ref,
+					int (*cmpf)(void *, void *));
+int				ft_btrinsert(t_btree **root, void *item,
+					int (*cmpf)(void *, void *));
 
 #endif
