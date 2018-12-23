@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 21:07:52 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 21:31:44 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	aux_reset(int *save, t_c4 *board)
 	}
 }
 
-static int	aux_print_result(int *save, t_c4 *board)
+int	aux_print_result(int *save, t_c4 *board)
 {
 	int	i;
 	int	out;
@@ -55,8 +55,10 @@ int			ft_ia(t_c4 *board, int turn)
 	aux_reset(save, board);
 	board->depth = turn;
 	col = ft_negamax(board, turn, save);
+	ft_printf(" ** col finale: %d\n", col);
 	if (!aux_print_result(save, board))
 		col = board->col / 2 + 1;
+	ft_printf(" ** col finale: %d\n", col);
 	while (!ft_play(board, col))
 	{
 		col++;

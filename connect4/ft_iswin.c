@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:36 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 20:14:02 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 21:33:41 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int			ft_iswin(t_c4 *board, int col)
 	int	line;
 
 	col += 2;
+	board->winner = 0;
 	line = ft_get_line(board, col);
 	if (ft_test(board, col, line - 1))
 	{
