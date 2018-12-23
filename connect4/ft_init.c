@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:33 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 20:16:28 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 20:36:51 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int			ft_init(t_c4 *board, char **av)
 	board->col = ft_atoi(av[1]);
 	board->line = ft_atoi(av[2]);
 	if (board->line % 2 != 0 && board->col % 2 != 0)
-		return(ft_usage(av));
+		return (ft_usage(av));
 	board->winner = 0;
 	board->player = (rand_a_b(0, 2) > 0) ? 1 : -1;
 	ft_printf("board line %d\n", board->line);
