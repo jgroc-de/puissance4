@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 20:15:16 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 21:40:52 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ int	ft_negamax(t_c4 *board, int turn, int *save)
 			bestscore = turn;
 	}
 	else
-	{
 		bestscore = aux_negamax(board, turn, &col, save);
-	}
 	if (turn == board->depth)
 		return (col);
 	else

@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 21:31:44 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 21:40:47 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int			ft_ia(t_c4 *board, int turn)
 	board->depth = turn;
 	col = ft_negamax(board, turn, save);
 	ft_printf(" ** col finale: %d\n", col);
-	if (!aux_print_result(save, board))
+	if (col != 1 && !aux_print_result(save, board))
 		col = board->col / 2 + 1;
 	ft_printf(" ** col finale: %d\n", col);
 	while (!ft_play(board, col))
