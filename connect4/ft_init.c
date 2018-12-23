@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:33 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 20:53:32 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 20:56:37 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ static int	ft_get_hardness()
 	int		hard;
 	char	*str;
 
-	hard = 1;
+	hard = 0;
 	str = NULL;
 	while (hard < 1 || hard > 4)
 	{
+		ft_printf("Choose your difficulty\n");
 		ft_printf("Plz enter a number between 1 and 4: ");
 		if (get_next_line(0, &str) == -1)
 		{
@@ -74,7 +75,7 @@ int			ft_init(t_c4 *board, char **av)
 {
 	if (!ft_isinteger(av[1]) || !ft_isinteger(av[2]))
 		return (ft_usage(av));
-	if (board->hard = ft_get_hardness())
+	if ((board->hard = ft_get_hardness()) == -1)
 		return (0);
 	board->col = ft_atoi(av[1]);
 	board->line = ft_atoi(av[2]);
