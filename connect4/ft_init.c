@@ -6,13 +6,13 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:33 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 20:56:37 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 21:20:03 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
 
-static int	ft_get_hardness()
+static int	ft_get_hardness(void)
 {
 	int		hard;
 	char	*str;
@@ -66,7 +66,7 @@ static int	aux_malloc(t_c4 *board)
 	return (1);
 }
 
-int	rand_a_b(int a, int b)
+static int	rand_a_b(int a, int b)
 {
 	return (rand() % (b - a) + a);
 }

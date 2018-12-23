@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:12 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 20:42:54 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 21:19:43 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 typedef struct	s_c4
 {
-	int 	col;
+	int		col;
 	int		hard;
-	int 	line;
+	int		line;
 	int		player;
 	int		winner;
 	int		max_turn;
@@ -36,27 +36,27 @@ typedef struct	s_c4
 ** misc
 */
 
-int		ft_usage(char **av);
-int		ft_init(t_c4 *board, char **av);
-void	ft_free(t_c4 *board, int i);
-void	ft_print(t_c4 *board);
+int				ft_usage(char **av);
+int				ft_init(t_c4 *board, char **av);
+void			ft_free(t_c4 *board, int i);
+void			ft_print(t_c4 *board);
 
 /*
 ** game loop
 */
 
-int		ft_game_loop(t_c4 *board);
-int		ft_play_loop(t_c4 *board, int turn);
-int		ft_iswin(t_c4 *board, int col);
-int		ft_play(t_c4 *board, int col);
-void	ft_remove_play(t_c4 *board, int col);
+int				ft_game_loop(t_c4 *board);
+int				ft_play_loop(t_c4 *board, int turn);
+int				ft_iswin(t_c4 *board, int col);
+int				ft_play(t_c4 *board, int col);
+void			ft_remove_play(t_c4 *board, int col);
 
 /*
 ** ia
 */
 
-int		ft_ia(t_c4 *board, int turn);
-int		ft_can_win(t_c4 *board);
-int		ft_negamax(t_c4 *board, int turn, int *save);
+int				ft_ia(t_c4 *board, int turn);
+int				ft_can_win(t_c4 *board);
+int				ft_negamax(t_c4 *board, int turn, int *save);
 
 #endif
