@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:48 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 12:25:53 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 20:32:31 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int ac, char **av)
 		if (!ft_init(&board, av))
 			return (EXIT_FAILURE);
 		ft_game_loop(&board);
-		ft_free(&board, board.line - 1 + 3);
+		ft_free(&board, board.line + 6);
 	}
 	return (EXIT_SUCCESS);
 }

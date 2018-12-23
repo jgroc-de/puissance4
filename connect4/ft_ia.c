@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 20:03:43 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 20:26:43 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int			ft_ia(t_c4 *board, int turn)
 		if (col > board->col)
 			col = 1;
 	}
+	free(save);
 	ft_remove_play(board, col);
 	ft_printf(" ** col finale: %d\n", col);
 	return (col);
