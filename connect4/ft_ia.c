@@ -27,7 +27,7 @@ int	ft_minimax(t_c4 *board, int depth)
 		ft_printf("depth: %d\n", depth);
 		if (ft_play(board, i))
 		{
-			if (!ft_iswin(board, i + 2))
+			if (!ft_iswin(board, i) && turn != 0)
 			{
 				board->player = (board->player == 1) ? -1 : 1;
 				tmp = ft_minimax(board, depth - 1);
@@ -41,11 +41,10 @@ int	ft_minimax(t_c4 *board, int depth)
 			{
 				score = depth * 2 * board->player;
 				ft_remove_play(board, i);
-				break;
+				return (board->player * turn);
 			}
-			ft_remove_play(board, i);
 		}
-		i++;
+		j++;
 	}
 	return (score);
 }
