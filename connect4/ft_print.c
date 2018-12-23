@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:42 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 12:44:44 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 21:54:36 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	ft_line(t_c4 *board, int i, char (*f)(char c))
 	{
 		if (i == 2)
 			ft_printf("____");
+		else if (i == 1)
+			ft_printf("  %d ", j - 2);
 		else if (board->grid[i][j] == 1)
 			ft_printf("| \e[1;31m%c\e[m ", f(board->grid[i][j]));
 		else if (board->grid[i][j] == -1)
@@ -60,6 +62,7 @@ void	ft_print(t_c4 *board)
 
 	i = board->line - 1;
 	ft_line(board, -1, NULL);
+	ft_line(board, -2, NULL);
 	while (i >= 0)
 	{
 		ft_line(board, i, &ft_empty_line);
