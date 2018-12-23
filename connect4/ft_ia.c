@@ -18,11 +18,11 @@ int	ft_minimax(t_c4 *board, int turn, int i)
 	int tmp;
 
 	j = 1;
-	while (j < board->col)
+	while (j <= board->col)
 	{
 		if (ft_play(board, i))
 		{
-			if (!ft_iswin(board, i + 2) && turn != 0)
+			if (!ft_iswin(board, i) && turn != 0)
 			{
 				board->player = turn % 2 == 0 ? -1 : 1;
 				tmp = ft_minimax(board, turn - 1, j);
@@ -36,11 +36,12 @@ int	ft_minimax(t_c4 *board, int turn, int i)
 				return (board->player * turn);
 			}
 		}
-	j++;
+		j++;
 	}
 	return (0);
 }
 
+//j'ai retiré le + 2 dans ft_iswin (il est maintenant dans iswin donc on s en occupe plus
 int	ft_ia(t_c4 *board, int turn)
 {
 	int col[7];
@@ -56,7 +57,7 @@ int	ft_ia(t_c4 *board, int turn)
 	}
 	i = 0;
 	tmp = col[i];
-	colonne = i + 1;
+	colonne = 1;
 	i = 1;
 	while (i < 7)
 	{
@@ -67,5 +68,11 @@ int	ft_ia(t_c4 *board, int turn)
 		}
 		i++;
 	}
+	//au cas ou la colonne 1 est full
+	while (!ft_play(board, colonne))
+	{
+		colonne++;
+	}
+	ft_remove_play(board, colonne);
 	return (colonne);
 }

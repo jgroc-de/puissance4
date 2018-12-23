@@ -18,7 +18,7 @@ int	ft_play(t_c4 *board, int col)
 	int	real_col;
 
 	i = 0;
-	real_col = col - 1 + 3;
+	real_col = col + 2;
 	while (i < board->line && board->grid[i + 3][real_col] != 0)
 		i++;
 	if (i != board->line)

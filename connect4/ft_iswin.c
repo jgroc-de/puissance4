@@ -77,6 +77,7 @@ int			ft_iswin(t_c4 *board, int col)
 {
 	int	line;
 
+	col += 2;
 	line = ft_get_line(board, col);
 	ft_printf("col computer: %d\n", col);
 	ft_printf("ligne computer: %d\n", line - 1);
