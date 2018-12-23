@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 20:39:00 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 20:43:25 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int			ft_ia(t_c4 *board, int turn)
 	int col;
 	int	*save;
 
-	turn = 6;
+	turn = 2 * board->hard;
 	if (!(save = (int*)malloc(sizeof(int) * board->col)))
 		return (0);
 	aux_reset(save, board);

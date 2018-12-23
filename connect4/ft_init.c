@@ -6,11 +6,35 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:33 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 20:41:40 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 20:53:32 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
+
+static int	ft_get_hardness()
+{
+	int		hard;
+	char	*str;
+
+	hard = 1;
+	str = NULL;
+	while (hard < 1 || hard > 4)
+	{
+		ft_printf("Plz enter a number between 1 and 4: ");
+		if (get_next_line(0, &str) == -1)
+		{
+			ft_putstr(strerror(errno));
+			return (-1);
+		}
+		if (!ft_isinteger(str))
+			hard = 0;
+		else
+			hard = ft_atoi(str);
+		ft_strdel(&str);
+	}
+	return (hard);
+}
 
 static int	aux_malloc(t_c4 *board)
 {
@@ -49,9 +73,9 @@ int	rand_a_b(int a, int b)
 int			ft_init(t_c4 *board, char **av)
 {
 	if (!ft_isinteger(av[1]) || !ft_isinteger(av[2]))
-	{
 		return (ft_usage(av));
-	}
+	if (board->hard = ft_get_hardness())
+		return (0);
 	board->col = ft_atoi(av[1]);
 	board->line = ft_atoi(av[2]);
 	if (board->line % 2 != 0 && board->col % 2 != 0)
@@ -59,11 +83,7 @@ int			ft_init(t_c4 *board, char **av)
 	board->winner = 0;
 	board->player = (rand_a_b(0, 2) > 0) ? 1 : -1;
 	if (board->col < COL || board->line < LINE)
-	{
 		return (ft_usage(av));
-	}
 	else
-	{
 		return (aux_malloc(board));
-	}
 }
