@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:12 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 18:01:32 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 18:16:31 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <time.h>
 
 # define COL 7
-# define LINE 6
+# define LINE 4
 
 typedef struct	s_c4
 {
