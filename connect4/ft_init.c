@@ -54,6 +54,8 @@ int			ft_init(t_c4 *board, char **av)
 	}
 	board->col = ft_atoi(av[1]);
 	board->line = ft_atoi(av[2]);
+	if (board->line % 2 != 0 && board->col % 2 != 0)
+		return(ft_usage(av));
 	board->winner = 0;
 	board->player = (rand_a_b(0, 2) > 0) ? 1 : -1;
 	ft_printf("board line %d\n", board->line);
