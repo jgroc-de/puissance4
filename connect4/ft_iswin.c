@@ -79,9 +79,12 @@ int			ft_iswin(t_c4 *board, int col)
 
 	col += 2;
 	line = ft_get_line(board, col);
-	ft_printf("col computer: %d\n", col);
-	ft_printf("ligne computer: %d\n", line - 1);
-	ft_printf("ligne joueur: %d\n", line - 3);
+	/*if (board->player == 1)
+	{
+		ft_printf("col computer: %d\n", col);
+		ft_printf("ligne computer: %d\n", line - 1);
+		ft_printf("ligne joueur: %d\n", line - 3);
+	}*/
 	if (ft_test(board, col, line - 1))
 	{
 		board->winner = board->grid[line - 1][col];

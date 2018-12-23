@@ -12,73 +12,61 @@
 
 #include "connect4.h"
 
-int	ft_minimax(t_c4 *board, int depth)
+int	ft_minimax(t_c4 *board, int depth, int first)
 {
 	int	i;
 	int	score;
 	int	tmp;
+	int col;
 
 	i = 1;
+	col = 1;
 	score = 0;
 	if (depth <= 0)
-		i = board->col + 1;
+		return (0);
 	while (i <= board->col)
 	{
-		ft_printf("depth: %d\n", depth);
 		if (ft_play(board, i))
 		{
-			if (!ft_iswin(board, i) && turn != 0)
+			if (!ft_iswin(board, i))
 			{
 				board->player = (board->player == 1) ? -1 : 1;
-				tmp = ft_minimax(board, depth - 1);
+				tmp = ft_minimax(board, depth - 1, 0);
+				if (first)
+					ft_printf("| %d ", tmp);
 				board->player = (board->player == 1) ? -1 : 1;
-				if (score > tmp)
+				if (ft_abs(score) < ft_abs(tmp))
 				{
 					score = tmp;
+					col = i;
 				}
 			}
 			else
 			{
 				score = depth * 2 * board->player;
+				if (first)
+					ft_printf(" %d |", score);
 				ft_remove_play(board, i);
-				return (board->player * turn);
+				return (first == 1 ? i : score);
 			}
+			ft_remove_play(board, i);
 		}
-		j++;
+		i++;
 	}
-	return (score);
+	return (first == 1 ? col : score);
 }
 
 int	ft_ia(t_c4 *board, int turn)
 {
 	int col;
-	int	i;
-	int	score;
-	int	tmp;
 
-	i = 1;
-	score = -1;
-	col = 1;
-	while (i <= board->col)
+	ft_printf(" ");
+	col = ft_minimax(board, turn = 3, 1);
+	while (!ft_play(board, col))
 	{
-		tmp = ft_minimax(board, turn = 2);
-		if (score > tmp)
-		{
-			score = tmp;
-			col = i;
-		}
-		ft_printf("i: %d\n", i);
-		i++;
+		col++;
 	}
-	ft_printf("col: %d\n", col);
-	if (col == 1)
-	{
-		while (!ft_play(board, col))
-		{
-			col++;
-		}
-		ft_remove_play(board, col);
-	}
-	ft_printf("col: %d\n", col);
+	ft_remove_play(board, col);
+	ft_printf("col finale: %d\n", col);
 	return (col);
 }

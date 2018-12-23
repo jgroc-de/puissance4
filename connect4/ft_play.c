@@ -23,14 +23,13 @@ int	ft_play(t_c4 *board, int col)
 		i++;
 	if (i != board->line)
 	{
-		ft_printf("col: %d\n", i);
 		board->grid[i + 3][real_col] = board->player;
 		return (1);
 	}
 	else
 	{
-		if (board->player == 1)
-			ft_printf("column %d is full! Plz choose another one!\n", col);
+		//if (board->player == 1)
+		//	ft_printf("column %d is full! Plz choose another one!\n", col);
 		return (0);
 	}
 }

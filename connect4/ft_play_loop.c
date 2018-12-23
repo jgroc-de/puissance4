@@ -47,6 +47,7 @@ int			ft_play_loop(t_c4 *board, int turn)
 		if (ft_play(board, col))
 			break ;
 	}
-	ft_printf("col jouée: %d\n", col);
+	//if (board->player == 1)
+	//	ft_printf("col jouée: %d\n", col);
 	return (col);
 }
