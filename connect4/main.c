@@ -16,6 +16,7 @@ int	main(int ac, char **av)
 {
 	t_c4	board;
 
+	srand(time(NULL));
 	if (ac != 3)
 		ft_usage(av);
 	else

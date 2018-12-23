@@ -41,6 +41,11 @@ static int	aux_malloc(t_c4 *board)
 	return (1);
 }
 
+int	rand_a_b(int a, int b)
+{
+	return (rand() % (b - a) + a);
+}
+
 int			ft_init(t_c4 *board, char **av)
 {
 	//isinteger counts digit, that s all
@@ -51,8 +56,7 @@ int			ft_init(t_c4 *board, char **av)
 	board->col = ft_atoi(av[1]);
 	board->line = ft_atoi(av[2]);
 	board->winner = 0;
-	srand(time(NULL));
-	board->player = rand() > (RAND_MAX / 2) ? 1 : -1;
+	board->player = (rand_a_b(0, 2) > 0) ? 1 : -1;
 	ft_printf("board line %d\n", board->line);
 	ft_printf("board col %d\n", board->col);
 	if (board->col < COL || board->line < LINE)
