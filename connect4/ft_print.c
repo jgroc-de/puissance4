@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:42 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 21:54:36 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/23 22:04:30 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	ft_print(t_c4 *board)
 	int	i;
 
 	i = board->line - 1;
+	ft_printf("\n");
 	ft_line(board, -1, NULL);
 	ft_line(board, -2, NULL);
 	while (i >= 0)

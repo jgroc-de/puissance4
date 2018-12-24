@@ -6,7 +6,7 @@
 #    By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/22 12:25:51 by jgroc-de          #+#    #+#              #
-#    Updated: 2018/12/22 12:25:52 by jgroc-de         ###   ########.fr        #
+#    Updated: 2018/12/23 21:59:42 by jgroc-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,21 @@ NAME= ../puissance4
 LIB= ../libft/libft.a
 .phony: all clean fclean re
 
-SRC= $(wildcard *.c)
+SRC=\
+ft_can_win.c\
+ft_free.c\
+ft_game_loop.c\
+ft_ia.c\
+ft_init.c\
+ft_iswin.c\
+ft_negamax.c\
+ft_play.c\
+ft_play_loop.c\
+ft_print.c\
+ft_remove_play.c\
+ft_usage.c\
+main.c\
+
 OBJ= $(subst .c,.o, $(SRC))
 
 all: $(NAME)
