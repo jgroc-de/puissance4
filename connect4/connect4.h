@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:12 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 21:25:08 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 16:29:35 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <errno.h>
 # include <time.h>
 
-# define COL 7
+# define COL 4
 # define LINE 6
 
 typedef struct	s_c4
@@ -27,9 +27,13 @@ typedef struct	s_c4
 	int		player;
 	int		winner;
 	int		max_turn;
-	int		*score;
 	int		depth;
 	char	**grid;
+//	int		score0;
+//	int		score1[COL];
+//	int		score2[COL * COL];
+//	int		score3[COL * COL * COL];
+//	int		score4[COL * COL * COL * COL];
 }				t_c4;
 
 /*
@@ -57,6 +61,6 @@ void			ft_remove_play(t_c4 *board, int col);
 
 int				ft_ia(t_c4 *board, int turn);
 int				ft_can_win(t_c4 *board);
-int				ft_negamax(t_c4 *board, int turn, int *save);
+int				ft_negamax(t_c4 *board, int turn);
 
 #endif

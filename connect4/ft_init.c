@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:33 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/24 12:58:40 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 14:13:08 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,9 @@ static int	aux_malloc(t_c4 *board)
 {
 	int	i;
 
-	if (!(board->score = (int*)malloc(sizeof(int) * board->col)))
-	{
-		ft_printf("%s\n", strerror(errno));
-		return (0);
-	}
 	if (!(board->grid = (char**)malloc(sizeof(char*) * (board->line + 6))))
 	{
 		ft_printf("%s\n", strerror(errno));
-		free(board->score);
 		return (0);
 	}
 	i = 0;

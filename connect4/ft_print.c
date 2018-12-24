@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:42 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 22:04:30 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 15:10:52 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	ft_print(t_c4 *board)
 	i = board->line - 1;
 	ft_printf("\n");
 	ft_line(board, -1, NULL);
-	ft_line(board, -2, NULL);
 	while (i >= 0)
 	{
 		ft_line(board, i, &ft_empty_line);
@@ -71,6 +70,7 @@ void	ft_print(t_c4 *board)
 		ft_line(board, i, &ft_line_break);
 		i--;
 	}
+	ft_line(board, -2, NULL);
 	ft_printf("human player: \e[1;31mo\e[m\n");
 	ft_printf("computer player: \e[1;33mx\e[m\n");
 }

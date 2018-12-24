@@ -6,65 +6,101 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 22:05:13 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 16:48:12 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
 
-static void	aux_reset(int *save, t_c4 *board)
+/*static void	aux_reset(t_c4 *board)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (i < board->col)
+	while (i < COL * COL * COL * COL)
 	{
-		save[i] = -board->max_turn - 1;
+		board->score4[i] = 254;
+		i++;
+	}
+	i = 0;
+	while (i < COL * COL * COL)
+	{
+		board->score3[i] = 254;
+		i++;
+	}
+	i = 0;
+	while (i < COL * COL)
+	{
+		board->score2[i] = 254;
+		i++;
+	}
+	i = 0;
+	while (i < COL)
+	{
+		board->score1[i] = 254;
 		i++;
 	}
 }
 
-int			aux_print_result(int *save, t_c4 *board)
+void		aux_print_result(t_c4 *board)
 {
 	int	i;
-	int	out;
-	int	test;
+	int	j;
+	int	end;
+	int	*save;
 
-	i = 0;
-	out = 0;
-	ft_printf("\n|");
-	test = save[0];
-	while (i < board->col)
+	j = 4;
+	while (j >= 0)
 	{
-		if (test != save[i])
-			out = 1;
-		ft_printf(" %d |", save[i]);
-		i++;
+		if (j == 0)
+			ft_printf("\t\t\t     |%d|\n", board->score0);
+		else if (j != 4)
+		{
+			if (j == 1)
+			{
+				ft_printf("\t\t\t  ");
+				save = board->score1;
+			}
+			else if (j == 2)
+			{
+				ft_printf("\t");
+				save = board->score2;
+			}
+			else if (j == 3)
+				save = board->score3;
+			else if (j == 4)
+				save = board->score4;
+			end = ft_pow(COL, j);
+			i = 0;
+			ft_printf("|");
+			while (i < end)
+			{
+				ft_printf("%d|", save[i]);
+				if (i % COL == COL - 1 && i != end - 1)
+					ft_printf(" * |");
+				i++;
+			}
+		}
+		ft_printf("\n\n");
+		j--;
 	}
-	return (out);
-}
+}*/
 
 int			ft_ia(t_c4 *board, int turn)
 {
 	int col;
-	int	*save;
 
-	turn = 2 * board->hard;
-	if (!(save = (int*)malloc(sizeof(int) * board->col)))
-		return (0);
-	aux_reset(save, board);
+	turn = 8;
+//	aux_reset(board);
 	board->depth = turn;
-	col = ft_negamax(board, turn, save);
+	col = ft_negamax(board, turn);
 	ft_printf(" ** col finale: %d\n", col);
-	if (col == board->col && !aux_print_result(save, board))
-		col = board->col / 2 + 1;
+//	aux_print_result(board);
 	while (!ft_play(board, col))
 	{
-		col++;
-		if (col > board->col)
+		if (++col > board->col)
 			col = 1;
 	}
-	free(save);
 	ft_remove_play(board, col);
 	return (col);
 }

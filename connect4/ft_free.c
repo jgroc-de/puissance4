@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:17 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 20:30:31 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 14:12:34 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_free(t_c4 *board, int max)
 	int	i;
 
 	i = 0;
-	free(board->score);
 	while (i < max)
 	{
 		free(board->grid[i]);

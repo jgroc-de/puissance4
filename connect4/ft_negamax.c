@@ -6,60 +6,77 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 21:40:52 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 16:45:18 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
 
-int	aux_negamax(t_c4 *board, int turn, int *col, int *save)
+/*void		aux_stock(int *score, int bestscore)
 {
-	int	bestscore;
-	int	tmp;
 	int	i;
 
-	bestscore = -board->max_turn;
-	i = 1;
-	while (i <= board->col)
-	{
-		if (ft_play(board, i))
-		{
-			board->player = (board->player == 1) ? -1 : 1;
-			tmp = -ft_negamax(board, turn - 1, save);
-			bestscore = ft_max(bestscore, tmp);
-			if (turn == board->depth && bestscore == tmp)
-				*col = i;
-			board->player = (board->player == 1) ? -1 : 1;
-			ft_remove_play(board, i);
-		}
-		if (turn == board->depth)
-			save[i - 1] = bestscore;
+	i = 0;
+	while (score[i] != 254)
 		i++;
-	}
-	return (bestscore);
+	score[i] = bestscore;
 }
 
-int	ft_negamax(t_c4 *board, int turn, int *save)
+void		aux_save(t_c4 *board, int turn, int bestscore)
+{
+	turn = board->depth - turn;
+	if (!turn)
+		board->score0 = bestscore;
+	else if (turn == 1)
+		aux_stock(board->score1, bestscore);
+	else if (turn == 2)
+		aux_stock(board->score2, bestscore);
+	else if (turn == 3)
+		aux_stock(board->score3, bestscore);
+	else if (turn == 4)
+		aux_stock(board->score4, bestscore);
+}*/
+
+int			ft_negamax(t_c4 *board, int turn)
 {
 	int	bestscore;
 	int tmp;
 	int col;
+	int	i;
 
-	col = board->col / 2 + 1;
-	if (!turn)
-		bestscore = 0;
-	else if ((tmp = ft_can_win(board)) != 0)
+	if ((tmp = ft_can_win(board)) != 0)
 	{
+		bestscore = turn;
 		if (turn == board->depth)
-		{
 			col = tmp;
-			save[0] = -200;
-		}
-		else
-			bestscore = turn;
 	}
+	else if (!turn)
+		bestscore = 0;
 	else
-		bestscore = aux_negamax(board, turn, &col, save);
+	{
+		i = 1;
+		bestscore = -1000;
+		while (i <= board->col)
+		{
+			if (ft_play(board, i))
+			{
+				board->player = (board->player == 1) ? -1 : 1;
+				tmp = -ft_negamax(board, turn - 1);
+				if (bestscore == -1000)
+					bestscore = tmp;
+				else if (board->player == 1)
+					bestscore = ft_max(bestscore, tmp);
+				else if (board->player == 1)
+					bestscore = ft_min(bestscore, tmp);
+				if (turn == board->depth && bestscore == tmp)
+					col = i;
+				board->player = (board->player == 1) ? -1 : 1;
+				ft_remove_play(board, i);
+			}
+			i++;
+		}
+	}
+	//aux_save(board, turn, bestscore);
 	if (turn == board->depth)
 		return (col);
 	else
