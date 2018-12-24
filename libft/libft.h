@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 11:41:39 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 21:11:59 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 13:01:21 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,5 +233,11 @@ t_btree			*ft_btrsearch(t_btree *root, void *data_ref,
 					int (*cmpf)(void *, void *));
 int				ft_btrinsert(t_btree **root, void *item,
 					int (*cmpf)(void *, void *));
+
+/*
+**	misc
+*/
+
+int				ft_rand(int a, int b);
 
 #endif

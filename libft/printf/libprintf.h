@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 17:02:42 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 21:12:29 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 13:04:07 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define LIBPRINTF_H
 
 # include <stdio.h>
+# include <stdarg.h>
+# include <wchar.h>
+# include <stdint.h>
 # include "../libft.h"
 
 # define SIZE "hHlLjz"

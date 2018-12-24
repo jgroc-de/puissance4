@@ -6,13 +6,11 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 16:53:17 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/02/10 16:47:26 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 13:04:09 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
-#include <stdarg.h>
-#include <stdint.h>
 
 char	*ft_d_size_hh(va_list *ap, t_printf *all)
 {

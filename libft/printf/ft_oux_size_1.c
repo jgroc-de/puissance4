@@ -6,13 +6,11 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 16:58:04 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/02/14 16:13:06 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 13:04:32 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
-#include <stdarg.h>
-#include <stdint.h>
 
 char	*ft_oux_size(uintmax_t nbr, t_printf *all)
 {

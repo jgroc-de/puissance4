@@ -6,7 +6,7 @@
 #    By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/06 11:23:09 by jgroc-de          #+#    #+#              #
-#    Updated: 2018/12/22 12:42:20 by jgroc-de         ###   ########.fr        #
+#    Updated: 2018/12/24 13:02:13 by jgroc-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -174,6 +174,8 @@ ft_printf.c\
 ft_width.c\
 ft_zero.c
 
+SRC_MISC=	ft_rand.c
+
 SRC= 	$(addprefix string/,$(SRC_STR))\
 		$(addprefix printf/,$(SRC_PRINTF))\
 		$(addprefix mem/,$(SRC_MEM))\
@@ -181,7 +183,8 @@ SRC= 	$(addprefix string/,$(SRC_STR))\
 		$(addprefix io/, $(SRC_IO))\
 		$(addprefix istest/,$(SRC_IS))\
 		$(addprefix math/,$(SRC_MATH))\
-		$(addprefix lst/,$(SRC_LST))
+		$(addprefix lst/,$(SRC_LST))\
+		$(addprefix misc/,$(SRC_MISC))
 
 OBJ=$(subst .c,.o, $(SRC))
 

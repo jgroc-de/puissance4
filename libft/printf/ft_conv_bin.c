@@ -6,12 +6,11 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 16:41:20 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/02/15 13:38:19 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 13:02:30 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
-#include <stdarg.h>
 
 /*
 ** %b gives the result for a char, aka on 8 bits

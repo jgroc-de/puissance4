@@ -6,12 +6,11 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 16:48:12 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/02/20 20:08:48 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 13:03:04 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
-#include <stdarg.h>
 
 /*
 ** options available : minus (included in width), space, zero, width

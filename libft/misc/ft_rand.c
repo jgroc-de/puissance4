@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_d_size_2.c                                      :+:      :+:    :+:   */
+/*   ft_rand.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/08 16:55:18 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/24 13:04:19 by jgroc-de         ###   ########.fr       */
+/*   Created: 2018/12/24 12:59:13 by jgroc-de          #+#    #+#             */
+/*   Updated: 2018/12/24 13:06:23 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "libft.h"
 
-char	*ft_d_size_z(va_list *ap, t_printf *all)
+/*
+** add srand(time(NULL)); only one time somewhere
+*/
+//attention, fonction de la libc
+
+int	ft_rand(int a, int b)
 {
-	ssize_t	nbr;
-
-	nbr = va_arg(*ap, ssize_t);
-	all->str = ft_itoa(nbr);
-	return (all->str);
-}
-
-char	*ft_d_size_(va_list *ap, t_printf *all)
-{
-	int	nbr;
-
-	nbr = va_arg(*ap, int);
-	all->str = ft_itoa(nbr);
-	return (all->str);
+	return (rand() % (b - a) + a);
 }

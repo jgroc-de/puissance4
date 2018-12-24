@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:33 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 21:24:47 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 12:58:40 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,6 @@ static int	aux_malloc(t_c4 *board)
 	return (1);
 }
 
-static int	rand_a_b(int a, int b)
-{
-	return (rand() % (b - a) + a);
-}
-
 int			ft_init(t_c4 *board, char **av)
 {
 	if (!ft_isinteger(av[1]) || !ft_isinteger(av[2]))
@@ -80,7 +75,7 @@ int			ft_init(t_c4 *board, char **av)
 	if (board->line % 2 != 0 && board->col % 2 != 0)
 		return (ft_usage(av));
 	board->winner = 0;
-	board->player = (rand_a_b(0, 2) > 0) ? 1 : -1;
+	board->player = (ft_rand(0, 2) > 0) ? 1 : -1;
 	if (board->col < COL || board->line < LINE)
 		return (ft_usage(av));
 	else

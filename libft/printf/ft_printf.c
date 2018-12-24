@@ -6,11 +6,10 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/28 15:01:40 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/22 12:40:29 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/24 13:04:45 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include "libprintf.h"
 
 static void	aux_printf(t_printf *all, const char *restrict *format,
