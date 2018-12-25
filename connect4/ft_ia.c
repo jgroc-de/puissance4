@@ -12,7 +12,7 @@
 
 #include "connect4.h"
 
-/*static void	aux_reset(t_c4 *board)
+static void	aux_reset(t_c4 *board)
 {
 	int i;
 
@@ -52,8 +52,11 @@ void		aux_print_result(t_c4 *board)
 	j = 4;
 	while (j >= 0)
 	{
+		ft_printf("-- turn value %d\n", board->depth - j);
 		if (j == 0)
+		{
 			ft_printf("\t\t\t     |%d|\n", board->score0);
+		}
 		else if (j != 4)
 		{
 			if (j == 1)
@@ -67,7 +70,9 @@ void		aux_print_result(t_c4 *board)
 				save = board->score2;
 			}
 			else if (j == 3)
+			{
 				save = board->score3;
+			}
 			else if (j == 4)
 				save = board->score4;
 			end = ft_pow(COL, j);
@@ -84,21 +89,25 @@ void		aux_print_result(t_c4 *board)
 		ft_printf("\n\n");
 		j--;
 	}
-}*/
+}
 
 int			ft_ia(t_c4 *board, int turn)
 {
 	int col;
 
-	turn = 8;
-//	aux_reset(board);
-	board->depth = turn;
-	col = ft_negamax(board, turn);
+	if (turn <= 2)
+		return (board->col / 2 + 1);
+	board->depth = ft_min(board->hard, board->max_turn - turn + 1);
+	aux_reset(board);
+	board->player = (board->player == 1) ? -1 : 1;
+	col = ft_minimax(board, board->depth);
+	board->player = (board->player == 1) ? -1 : 1;
+	aux_print_result(board);
 	ft_printf(" ** col finale: %d\n", col);
-//	aux_print_result(board);
 	while (!ft_play(board, col))
 	{
-		if (++col > board->col)
+		col++;
+		if (col > board->col)
 			col = 1;
 	}
 	ft_remove_play(board, col);

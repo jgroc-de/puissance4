@@ -16,8 +16,10 @@
 # include <errno.h>
 # include <time.h>
 
-# define COL 4
-# define LINE 6
+# define COL 7
+# define LINE 4
+# define VICTORY 4
+# define WIN_TYPE 13
 
 typedef struct	s_c4
 {
@@ -29,11 +31,11 @@ typedef struct	s_c4
 	int		max_turn;
 	int		depth;
 	char	**grid;
-//	int		score0;
-//	int		score1[COL];
-//	int		score2[COL * COL];
-//	int		score3[COL * COL * COL];
-//	int		score4[COL * COL * COL * COL];
+	int		score0;
+	int		score1[COL];
+	int		score2[COL * COL];
+	int		score3[COL * COL * COL];
+	int		score4[COL * COL * COL * COL];
 }				t_c4;
 
 /*
@@ -61,6 +63,6 @@ void			ft_remove_play(t_c4 *board, int col);
 
 int				ft_ia(t_c4 *board, int turn);
 int				ft_can_win(t_c4 *board);
-int				ft_negamax(t_c4 *board, int turn);
+int				ft_minimax(t_c4 *board, int turn);
 
 #endif

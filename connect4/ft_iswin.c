@@ -12,36 +12,36 @@
 
 #include "connect4.h"
 
-static int	aux_iswin(int result[7])
+static int	aux_iswin(int *result)
 {
 	int	i;
 
 	i = 0;
-	while (i < 13)
+	while (i < WIN_TYPE)
 	{
-		if (ft_abs(result[i++]) == 4)
+		if (ft_abs(result[i++]) == VICTORY)
 			return (1);
 	}
 	return (0);
 }
 
-static void	aux_reset(int result[7])
+static void	aux_reset(int *result)
 {
 	int	i;
 
 	i = 0;
-	while (i < 13)
+	while (i < WIN_TYPE)
 		result[i++] = 0;
 }
 
 int			ft_test(t_c4 *board, int col, int line)
 {
 	int	k;
-	int	result[13];
+	int	result[WIN_TYPE];
 
 	k = 0;
 	aux_reset(result);
-	while (k < 4)
+	while (k < VICTORY)
 	{
 		result[0] += board->grid[line - k][col];
 		result[1] += board->grid[line][col - k];

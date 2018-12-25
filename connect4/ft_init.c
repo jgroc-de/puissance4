@@ -12,17 +12,17 @@
 
 #include "connect4.h"
 
-static int	ft_get_hardness(void)
+static int	ft_get_hardness(int max)
 {
 	int		hard;
 	char	*str;
 
 	hard = 0;
 	str = NULL;
-	while (hard < 1 || hard > 4)
+	while (hard < 1 || hard > max)
 	{
 		ft_printf("Choose your difficulty\n");
-		ft_printf("Plz enter a number between 1 and 4: ");
+		ft_printf("Plz enter a number between 1 and %d: ", max);
 		if (get_next_line(0, &str) == -1)
 		{
 			ft_putstr(strerror(errno));
@@ -74,7 +74,7 @@ int			ft_init(t_c4 *board, char **av)
 		return (ft_usage(av));
 	else
 	{
-		if ((board->hard = ft_get_hardness()) == -1)
+		if ((board->hard = ft_get_hardness(15)) == -1)
 			return (0);
 		return (aux_malloc(board));
 	}

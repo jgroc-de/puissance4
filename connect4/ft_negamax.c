@@ -12,7 +12,8 @@
 
 #include "connect4.h"
 
-/*void		aux_stock(int *score, int bestscore)
+
+void		aux_stock(int *score, int bestscore)
 {
 	int	i;
 
@@ -35,50 +36,54 @@ void		aux_save(t_c4 *board, int turn, int bestscore)
 		aux_stock(board->score3, bestscore);
 	else if (turn == 4)
 		aux_stock(board->score4, bestscore);
-}*/
+}
 
-int			ft_negamax(t_c4 *board, int turn)
+int			aux_minimax(t_c4 *board, int turn, int *col)
 {
 	int	bestscore;
 	int tmp;
-	int col;
 	int	i;
 
-	if ((tmp = ft_can_win(board)) != 0)
+	i = 0;
+	*col = 1;
+	bestscore = -board->max_turn;
+	while (i++ < board->col)
 	{
-		bestscore = turn;
-		if (turn == board->depth)
-			col = tmp;
-	}
-	else if (!turn)
-		bestscore = 0;
-	else
-	{
-		i = 1;
-		bestscore = -1000;
-		while (i <= board->col)
+		if (ft_play(board, i))
 		{
-			if (ft_play(board, i))
+			tmp = ft_minimax(board, turn - 1);
+			if (bestscore < tmp)
 			{
-				board->player = (board->player == 1) ? -1 : 1;
-				tmp = -ft_negamax(board, turn - 1);
-				if (bestscore == -1000)
-					bestscore = tmp;
-				else if (board->player == 1)
-					bestscore = ft_max(bestscore, tmp);
-				else if (board->player == 1)
-					bestscore = ft_min(bestscore, tmp);
-				if (turn == board->depth && bestscore == tmp)
-					col = i;
-				board->player = (board->player == 1) ? -1 : 1;
-				ft_remove_play(board, i);
+				*col = i;
+				bestscore = tmp;
 			}
-			i++;
+			ft_remove_play(board, i);
+			if (ft_abs(bestscore) == turn - 2)
+				break ;
 		}
 	}
-	//aux_save(board, turn, bestscore);
-	if (turn == board->depth)
-		return (col);
+	return (bestscore);
+}
+
+int			ft_minimax(t_c4 *board, int turn)
+{
+	int	bestscore;
+	int col;
+
+	board->player = (board->player == 1) ? -1 : 1;
+	if (!turn)
+	{
+		bestscore = 0;
+	}
+	else if ((col = ft_can_win(board)))
+	{
+		bestscore = -board->player * turn;
+	}
 	else
-		return (bestscore);
+	{
+		bestscore = aux_minimax(board, turn, &col);
+	}
+	board->player = (board->player == 1) ? -1 : 1;
+	aux_save(board, turn, bestscore);
+	return (turn == board->depth ? col : bestscore);
 }

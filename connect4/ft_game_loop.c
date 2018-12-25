@@ -32,7 +32,6 @@ int			ft_game_loop(t_c4 *board)
 	board->max_turn = board->line * board->col;
 	while (turn != board->max_turn + 1)
 	{
-		board->depth = ft_min(4, turn);
 		ft_printf("\n\n\t*** It's %s turn to play! ***\n",
 			board->player == 1 ? "your" : "computer's");
 		if ((col = ft_play_loop(board, turn)) == -1)
