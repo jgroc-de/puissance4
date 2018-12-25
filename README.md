@@ -7,7 +7,7 @@
 ia basée sur l'algorithme minimax (même si c'est bin lent…)
 https://fr.wikipedia.org/wiki/Algorithme_minimax
 
-avec un élagage alpha/beta (histoire que ca soit un peu moin bin lent…)
+avec un élagage alpha/beta (histoire que ca soit un peu moin bin lent…) https://fr.wikipedia.org/wiki/%C3%89lagage_alpha-b%C3%AAta
 
 ## comment jouer
 
