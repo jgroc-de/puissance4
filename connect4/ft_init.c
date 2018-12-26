@@ -69,7 +69,7 @@ int			ft_init(t_c4 *board, char **av)
 	if (board->line % 2 != 0 && board->col % 2 != 0)
 		return (ft_usage(av));
 	board->winner = 0;
-	board->player = (ft_rand(0, 2) > 0) ? 1 : -1;
+	board->player = (ft_rand(0, 2) > 0) ? IA : HUMAN;
 	if (board->col < COL || board->line < LINE)
 		return (ft_usage(av));
 	else

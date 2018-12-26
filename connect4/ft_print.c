@@ -14,9 +14,9 @@
 
 char	ft_int2symbol(char c)
 {
-	if (c == 1)
+	if (c == HUMAN)
 		return ('o');
-	else if (c == -1)
+	else if (c == IA)
 		return ('x');
 	else
 		return (' ');
@@ -45,9 +45,9 @@ void	ft_line(t_c4 *board, int i, char (*f)(char c))
 			ft_printf("____");
 		else if (i == 1)
 			ft_printf("  %d ", j - 2);
-		else if (board->grid[i][j] == 1)
+		else if (board->grid[i][j] == HUMAN)
 			ft_printf("| \e[1;31m%c\e[m ", f(board->grid[i][j]));
-		else if (board->grid[i][j] == -1)
+		else if (board->grid[i][j] == IA)
 			ft_printf("| \e[1;33m%c\e[m ", f(board->grid[i][j]));
 		else
 			ft_printf("| %c ", f(0));

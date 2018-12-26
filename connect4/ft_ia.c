@@ -99,9 +99,10 @@ int			ft_ia(t_c4 *board, int turn)
 		return (board->col / 2 + 1);
 	board->depth = ft_min(board->hard, board->max_turn - turn + 1);
 	aux_reset(board);
-	board->player = (board->player == 1) ? -1 : 1;
-	col = ft_minimax(board, board->depth);
-	board->player = (board->player == 1) ? -1 : 1;
+	board->player = (board->player == IA) ? HUMAN : IA;
+	col = ft_minimax(board, 0, -board->max_turn);
+	board->player = (board->player == IA) ? HUMAN : IA;
+	board->winner = 0;
 	aux_print_result(board);
 	ft_printf(" ** col finale: %d\n", col);
 	while (!ft_play(board, col))

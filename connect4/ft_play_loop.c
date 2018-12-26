@@ -42,7 +42,7 @@ int			ft_play_loop(t_c4 *board, int turn)
 
 	while (1)
 	{
-		if (board->player == 1)
+		if (board->player == HUMAN)
 		{
 			if ((col = ft_get_play(board->col)) == -1)
 				return (-1);

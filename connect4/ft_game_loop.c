@@ -19,7 +19,7 @@ static void	ft_print_winner(t_c4 *board)
 	if (!board->winner)
 		ft_printf("Your strengh are equals, unbelievable!");
 	else
-		ft_printf("%s won!", board->winner == 1 ? "you" : "computer");
+		ft_printf("%s won!", board->winner == HUMAN ? "you" : "computer");
 	ft_putstr(" ***\n");
 }
 
@@ -33,13 +33,13 @@ int			ft_game_loop(t_c4 *board)
 	while (turn != board->max_turn + 1)
 	{
 		ft_printf("\n\n\t*** It's %s turn to play! ***\n",
-			board->player == 1 ? "your" : "computer's");
+			board->player == HUMAN ? "your" : "computer's");
 		if ((col = ft_play_loop(board, turn)) == -1)
 			return (0);
 		ft_print(board);
 		if (ft_iswin(board, col))
 			break ;
-		board->player = board->player == 1 ? -1 : 1;
+		board->player = board->player == IA ? HUMAN : IA;
 		turn++;
 	}
 	ft_print_winner(board);

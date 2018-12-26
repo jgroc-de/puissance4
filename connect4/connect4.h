@@ -20,6 +20,8 @@
 # define LINE 4
 # define VICTORY 4
 # define WIN_TYPE 13
+#define IA 1
+#define HUMAN -1
 
 typedef struct	s_c4
 {
@@ -63,6 +65,6 @@ void			ft_remove_play(t_c4 *board, int col);
 
 int				ft_ia(t_c4 *board, int turn);
 int				ft_can_win(t_c4 *board);
-int				ft_minimax(t_c4 *board, int turn);
+int				ft_minimax(t_c4 *board, int turn, int best);
 
 #endif
