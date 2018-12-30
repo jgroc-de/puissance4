@@ -6,34 +6,29 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/24 16:45:18 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/28 14:51:18 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "connect4.h"
 
-void		aux_stock(int *score, int bestscore)
+void		aux_stock(int *score, int bestscore, int col)
 {
-	int	i;
-
-	i = 0;
-	while (score[i] != 254)
-		i++;
-	score[i] = bestscore;
+	score[col] = bestscore;
 }
 
-void		aux_save(t_c4 *board, int turn, int bestscore)
+void		aux_save(t_c4 *board, int turn, int bestscore, int col)
 {
 	if (!turn)
 		board->score0 = bestscore;
 	else if (turn == 1)
-		aux_stock(board->score1, bestscore);
+		aux_stock(board->score1, bestscore, col);
 	else if (turn == 2)
-		aux_stock(board->score2, bestscore);
+		aux_stock(board->score2, bestscore, col);
 	else if (turn == 3)
-		aux_stock(board->score3, bestscore);
+		aux_stock(board->score3, bestscore, col);
 	else if (turn == 4)
-		aux_stock(board->score4, bestscore);
+		aux_stock(board->score4, bestscore, col);
 }
 
 /*
@@ -41,7 +36,7 @@ void		aux_save(t_c4 *board, int turn, int bestscore)
 ** HUMAN = -1
 */
 
-int			aux_minimax(t_c4 *board, int turn, int best, int *col)
+int			aux_minimax(t_c4 *board, int turn, int *col)
 {
 	int	bestscore;
 	int tmp;
@@ -53,7 +48,7 @@ int			aux_minimax(t_c4 *board, int turn, int best, int *col)
 	i = (board->col / 2) + 1;
 	*col = i;
 	(void)best;
-	bestscore = board->max_turn;
+	bestscore = -board->player * board->max_turn;
 	while (i + j <= board->col && i + j > 0)
 	{
 		k = i + j;
@@ -68,7 +63,7 @@ int			aux_minimax(t_c4 *board, int turn, int best, int *col)
 			}
 			else
 			{
-				tmp = ft_minimax(board, turn + 1, bestscore);
+				tmp = ft_minimax(board, turn + 1);
 				if (board->player == IA)
 					bestscore = ft_max(bestscore, tmp);
 				else
@@ -83,11 +78,12 @@ int			aux_minimax(t_c4 *board, int turn, int best, int *col)
 	return (bestscore);
 }
 
-int			ft_minimax(t_c4 *board, int turn, int best)
+int			ft_minimax(t_c4 *board, int turn)
 {
 	int	bestscore;
 	int col;
 
+	col = 1;
 	board->player = (board->player == IA) ? HUMAN : IA;
 	if (turn > board->depth)
 	{
@@ -95,9 +91,9 @@ int			ft_minimax(t_c4 *board, int turn, int best)
 	}
 	else
 	{
-		bestscore = aux_minimax(board, turn, best, &col);
+		bestscore = aux_minimax(board, turn, &col);
 	}
 	board->player = (board->player == IA) ? HUMAN : IA;
-	aux_save(board, turn, bestscore);
+	aux_save(board, turn, bestscore, col - 1);
 	return (turn == 0 ? col : bestscore);
 }

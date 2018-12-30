@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:12 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/24 16:29:35 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/28 14:23:27 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <errno.h>
 # include <time.h>
 
-# define COL 7
+# define COL 5
 # define LINE 4
-# define VICTORY 4
+# define VICTORY 3
 # define WIN_TYPE 13
 #define IA 1
 #define HUMAN -1

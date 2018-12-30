@@ -6,7 +6,7 @@
 #    By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/22 12:25:51 by jgroc-de          #+#    #+#              #
-#    Updated: 2018/12/23 21:59:42 by jgroc-de         ###   ########.fr        #
+#    Updated: 2018/12/28 14:14:33 by jgroc-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ ft_game_loop.c\
 ft_ia.c\
 ft_init.c\
 ft_iswin.c\
-ft_negamax.c\
+ft_minimax.c\
 ft_play.c\
 ft_play_loop.c\
 ft_print.c\

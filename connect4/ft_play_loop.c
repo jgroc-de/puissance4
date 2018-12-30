@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:39 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/23 20:55:00 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/27 16:29:24 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ static int	ft_get_play(int max)
 {
 	int		col;
 	char	*str;
+	int		tmp;
 
 	col = 0;
 	str = NULL;
 	while (col < 1 || col > max)
 	{
 		ft_printf("Plz enter a number between 1 and %d: ", max);
-		if (get_next_line(0, &str) == -1)
+		if ((tmp = get_next_line(0, &str)) == -1)
 		{
 			ft_putstr(strerror(errno));
 			return (-1);
@@ -31,7 +32,8 @@ static int	ft_get_play(int max)
 			col = 0;
 		else
 			col = ft_atoi(str);
-		ft_strdel(&str);
+		if (tmp)
+			ft_strdel(&str);
 	}
 	return (col);
 }

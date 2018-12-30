@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 12:25:33 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/24 14:13:08 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/27 16:27:47 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static int	ft_get_hardness(int max)
 {
 	int		hard;
 	char	*str;
+	int		tmp;
 
 	hard = 0;
 	str = NULL;
@@ -23,7 +24,7 @@ static int	ft_get_hardness(int max)
 	{
 		ft_printf("Choose your difficulty\n");
 		ft_printf("Plz enter a number between 1 and %d: ", max);
-		if (get_next_line(0, &str) == -1)
+		if ((tmp = get_next_line(0, &str)) == -1)
 		{
 			ft_putstr(strerror(errno));
 			return (-1);
@@ -32,7 +33,8 @@ static int	ft_get_hardness(int max)
 			hard = 0;
 		else
 			hard = ft_atoi(str);
-		ft_strdel(&str);
+		if (tmp == 1)
+			ft_strdel(&str);
 	}
 	return (hard);
 }

@@ -6,7 +6,7 @@
 /*   By: jgroc-de <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 13:03:53 by jgroc-de          #+#    #+#             */
-/*   Updated: 2018/12/24 16:48:12 by jgroc-de         ###   ########.fr       */
+/*   Updated: 2018/12/28 14:50:24 by jgroc-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,15 @@ void		aux_print_result(t_c4 *board)
 		ft_printf("-- turn value %d\n", board->depth - j);
 		if (j == 0)
 		{
-			ft_printf("\t\t\t     |%d|\n", board->score0);
+			ft_printf("\t\t\t     |", board->score0);
+			if (save[i] == 254)
+				ft_printf("|");
+			else if (save[i] > 0)
+				ft_printf("\e[1;33m%d|\e[m", board->score0);
+			else if (save[i] < 0)
+				ft_printf("\e[1;31m%d|\e[m", board->score0);
+			else
+				ft_printf("%d|", board->score0);
 		}
 		else if (j != 4)
 		{
@@ -80,9 +88,16 @@ void		aux_print_result(t_c4 *board)
 			ft_printf("|");
 			while (i < end)
 			{
-				ft_printf("%d|", save[i]);
+				if (save[i] == 254)
+					ft_printf("|");
+				else if (save[i] > 0)
+					ft_printf("\e[1;33m%d|\e[m", save[i]);
+				else if (save[i] < 0)
+					ft_printf("\e[1;31m%d|\e[m", save[i]);
+				else
+					ft_printf("%d|", save[i]);
 				if (i % COL == COL - 1 && i != end - 1)
-					ft_printf(" * |");
+					ft_printf("--|");
 				i++;
 			}
 		}
@@ -100,7 +115,7 @@ int			ft_ia(t_c4 *board, int turn)
 	board->depth = ft_min(board->hard, board->max_turn - turn + 1);
 	aux_reset(board);
 	board->player = (board->player == IA) ? HUMAN : IA;
-	col = ft_minimax(board, 0, -board->max_turn);
+	col = ft_minimax(board, 0);
 	board->player = (board->player == IA) ? HUMAN : IA;
 	board->winner = 0;
 	aux_print_result(board);
